@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "RottenTomatoes.MovieDetailViewController.viewDidLoad (RottenTomatoes.MovieDetailViewController)() -&gt; ():MovieDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "movie">
+            </PersistentString>
+            <PersistentString
+               value = "titleLabel">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RottenTomatoes.MovieTableViewController.tableView (RottenTomatoes.MovieTableViewController)(ObjectiveC.UITableView, cellForRowAtIndexPath : ObjectiveC.NSIndexPath) -&gt; ObjectiveC.UITableViewCell:MovieTableViewController.swift">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
