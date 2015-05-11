@@ -39,6 +39,7 @@
 		8368C1091AF876600043B021 /* RottenTomatoesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RottenTomatoesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8368C10E1AF876600043B021 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8368C10F1AF876600043B021 /* RottenTomatoesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RottenTomatoesTests.swift; sourceTree = "<group>"; };
+		83B67B3A1B005EED00067C18 /* RottenTomatoes-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RottenTomatoes-Header.h"; sourceTree = "<group>"; };
 		83C4E1011AF92A0C0046C343 /* MovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		83C4E1031AF9AE9D0046C343 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		A8564D4F3EDC7A75D6C8B8CD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -104,6 +105,7 @@
 				8368C1001AF876600043B021 /* Images.xcassets */,
 				8368C1021AF876600043B021 /* LaunchScreen.xib */,
 				8368C0F71AF876600043B021 /* Supporting Files */,
+				83B67B3A1B005EED00067C18 /* RottenTomatoes-Header.h */,
 			);
 			path = RottenTomatoes;
 			sourceTree = "<group>";

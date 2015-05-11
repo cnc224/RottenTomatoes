@@ -16,5 +16,13 @@
       <ContextState
          contextName = "RottenTomatoes.MovieTableViewController.tableView (RottenTomatoes.MovieTableViewController)(ObjectiveC.UITableView, cellForRowAtIndexPath : ObjectiveC.NSIndexPath) -&gt; ObjectiveC.UITableViewCell:MovieTableViewController.swift">
       </ContextState>
+      <ContextState
+         contextName = "RottenTomatoes.MovieTableViewController.prepareForSegue (RottenTomatoes.MovieTableViewController)(ObjectiveC.UIStoryboardSegue, sender : Swift.Optional&lt;Swift.AnyObject&gt;) -&gt; ():MovieTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "visited">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

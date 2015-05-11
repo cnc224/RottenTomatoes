@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import MBProgressHUD
 
 class MovieDetailViewController: UIViewController {
     @IBOutlet weak var posterImageView: UIImageView!
@@ -19,11 +20,22 @@ class MovieDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        loadingNotification.mode = MBProgressHUDMode.Indeterminate
+        loadingNotification.labelText = "Loading"
+
+        
         // Do any additional setup after loading the view.
         titleLabel.text = movie!["title"] as? String
         synopsisLabel.text = movie!["synopsis"] as? String
-        let posterUrl = movie!.valueForKeyPath("posters.original") as! String
+        var posterUrl = movie!.valueForKeyPath("posters.original") as! String
+        // tricky way to get high resolution image 
+        var range = posterUrl.rangeOfString(".*cloudfront.net/", options: .RegularExpressionSearch)
+        if let range = range {
+            posterUrl = posterUrl.stringByReplacingCharactersInRange(range, withString: "https://content6.flixster.com/")
+        }
         loadImage(posterUrl, completionHandler: { (image) -> Void in
+            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
             self.posterImageView.image = image
         })
         
