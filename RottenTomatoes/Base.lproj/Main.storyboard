@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
-        <!--Movie Table View Controller-->
+        <!--Movie View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="Movie Table View Controller" customClass="MovieTableViewController" customModule="RottenTomatoes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Movie View Controller" customClass="MovieTableViewController" customModule="RottenTomatoes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ayK-Yu-72D">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -108,6 +108,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="IQg-Es-aQL"/>
                     <connections>
+                        <outlet property="detailNavigationItem" destination="IQg-Es-aQL" id="9oR-uh-DoE"/>
                         <outlet property="posterImageView" destination="g4R-4f-Jl9" id="taD-jm-ph5"/>
                         <outlet property="synopsisLabel" destination="AD5-h8-Mig" id="TiX-C4-ZRO"/>
                         <outlet property="titleLabel" destination="KP9-Hl-ALI" id="3nV-Lk-pnB"/>
@@ -117,15 +118,15 @@
             </objects>
             <point key="canvasLocation" x="513" y="366"/>
         </scene>
-        <!--DVDs-->
+        <!--DVDs View Controller-->
         <scene sceneID="s5s-4K-JiM">
             <objects>
-                <viewController id="nAp-zr-fak" userLabel="DVDs" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="eh7-Rv-YYG">
+                <viewController id="nAp-zr-fak" userLabel="DVDs View Controller" customClass="DVDsViewController" customModule="RottenTomatoes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eh7-Rv-YYG" userLabel="DVDs View">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" id="iRz-UM-rYL">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" id="iRz-UM-rYL" userLabel="DVDs Table View">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -165,6 +166,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="nAp-zr-fak" id="Bvi-Va-nkO"/>
+                                    <outlet property="delegate" destination="nAp-zr-fak" id="IZ5-is-WkF"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -172,6 +177,9 @@
                     <tabBarItem key="tabBarItem" title="DVDs" id="STQ-lT-WF1">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-15"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="dvdsTableView" destination="iRz-UM-rYL" id="cpH-MA-HrI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wjy-Z3-B1g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

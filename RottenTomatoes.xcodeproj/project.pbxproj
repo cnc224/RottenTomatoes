@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5A5ED39FB82D6202B12786F2 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C33765DA0C314FA6FD43B5BA /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		831ABB571B00746F008ED399 /* DVDsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831ABB561B00746F008ED399 /* DVDsViewController.swift */; };
 		8368C0FA1AF876600043B021 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368C0F91AF876600043B021 /* AppDelegate.swift */; };
 		8368C0FC1AF876600043B021 /* MovieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368C0FB1AF876600043B021 /* MovieTableViewController.swift */; };
 		8368C0FF1AF876600043B021 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8368C0FD1AF876600043B021 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		831ABB561B00746F008ED399 /* DVDsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DVDsViewController.swift; sourceTree = "<group>"; };
 		8368C0F41AF876600043B021 /* RottenTomatoes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RottenTomatoes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8368C0F81AF876600043B021 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8368C0F91AF876600043B021 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			children = (
 				8368C0FB1AF876600043B021 /* MovieTableViewController.swift */,
 				83C4E1031AF9AE9D0046C343 /* MovieDetailViewController.swift */,
+				831ABB561B00746F008ED399 /* DVDsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83C4E1041AF9AE9D0046C343 /* MovieDetailViewController.swift in Sources */,
+				831ABB571B00746F008ED399 /* DVDsViewController.swift in Sources */,
 				8368C0FC1AF876600043B021 /* MovieTableViewController.swift in Sources */,
 				8368C0FA1AF876600043B021 /* AppDelegate.swift in Sources */,
 				83C4E1021AF92A0C0046C343 /* MovieCell.swift in Sources */,
@@ -443,6 +447,7 @@
 				INFOPLIST_FILE = RottenTomatoes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RottenTomatoes/RottenTomatoes-Header.h";
 			};
 			name = Debug;
 		};
@@ -454,6 +459,7 @@
 				INFOPLIST_FILE = RottenTomatoes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RottenTomatoes/RottenTomatoes-Header.h";
 			};
 			name = Release;
 		};

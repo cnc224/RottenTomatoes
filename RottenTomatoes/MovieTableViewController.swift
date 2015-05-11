@@ -40,9 +40,7 @@ class MovieTableViewController: UIViewController, UITableViewDataSource, UITable
             if let error = error {
                 println(error)
                 // TODO show error message
-                let networkErrorAlert = UIAlertController(title: "Network Error", message: "Sorry you're offline, come back later!", preferredStyle: UIAlertControllerStyle.Alert)
-                networkErrorAlert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(networkErrorAlert, animated: true, completion: nil)
+                self.alertNetworkError()
             } else {
                 if let data = data as? NSDictionary {
             
@@ -95,9 +93,17 @@ class MovieTableViewController: UIViewController, UITableViewDataSource, UITable
         let posterUrl = movie.valueForKeyPath("posters.thumbnail") as! String
         // no UIImageView and UIButton extension to support async images download
         // https://github.com/Alamofire/Alamofire/pull/333
+        // if import AFNetworking (before ios 7), with UIImageView+AFNetworking, use 
+        //cell.imageView?.setImageWithURL(NSURL(fileURLWithPath: posterUrl))
         loadImage(posterUrl, tableView: tableView, completionHandler: { (image) -> Void in
             cell.imageView?.image = image
+            cell.imageView?.alpha = 0.0
+            UIView.animateWithDuration(3.0, animations: {
+                () -> Void in
+                cell.imageView?.alpha = 1.0
+            })
         })
+        
         
         cell.titleLabel.text = movie["title"] as? String
         cell.synopsisLabel.text = movie["synopsis"] as? String
@@ -122,16 +128,26 @@ class MovieTableViewController: UIViewController, UITableViewDataSource, UITable
             completionHandler(image)
         } else {
             let request = Alamofire.request(Alamofire.Method.GET, url, parameters: nil, encoding: Alamofire.ParameterEncoding.JSON)
-            request.response(serializer: Request.responseDataSerializer(), completionHandler: { (_, _, data, _) in
-                
-                let image = UIImage(data: data! as! NSData)!
-                self.imageCache.setObject(image, forKey: url)
-                completionHandler(image)
-                tableView.reloadData()
-
+            request.response(serializer: Request.responseDataSerializer(), completionHandler: { (_, _, data, error) in
+                if let error = error {
+                    println(error)
+                    // TODO show error message
+                    self.alertNetworkError()
+                } else {
+                    let image = UIImage(data: data! as! NSData)!
+                    self.imageCache.setObject(image, forKey: url)
+                    completionHandler(image)
+                    tableView.reloadData()
+                }
             })
 
         }
+    }
+    
+    func alertNetworkError() {
+        let networkErrorAlert = UIAlertController(title: "Network Error", message: "Sorry you're offline, come back later!", preferredStyle: UIAlertControllerStyle.Alert)
+        networkErrorAlert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(networkErrorAlert, animated: true, completion: nil)
     }
     
     // Refresh Control

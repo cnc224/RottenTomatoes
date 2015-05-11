@@ -9,8 +9,7 @@
 #ifndef RottenTomatoes_RottenTomatoes_Header_h
 #define RottenTomatoes_RottenTomatoes_Header_h
 
-#import "MBProgressHUD.h"
-#import <AFNetworking.h>
-#import <UIImageView+AFNetworking.h>
+#import "AFNetworking/AFNetworking.h"
+#import "AFNetworking/UIImageView+AFNetworking.h"
 
 #endif

@@ -14,6 +14,7 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var synopsisLabel: UILabel!
+    @IBOutlet weak var detailNavigationItem: UINavigationItem!
 
     var movie : NSDictionary?
     
@@ -37,8 +38,13 @@ class MovieDetailViewController: UIViewController {
         loadImage(posterUrl, completionHandler: { (image) -> Void in
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
             self.posterImageView.image = image
+            self.posterImageView.alpha = 0.0
+            UIView.animateWithDuration(3.0, animations: {
+                () -> Void in
+                self.posterImageView.alpha = 1.0
+            })
         })
-        
+        detailNavigationItem.title = movie!["title"] as? String
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,14 +69,21 @@ class MovieDetailViewController: UIViewController {
             completionHandler(image)
         } else {
             let request = Alamofire.request(Alamofire.Method.GET, url, parameters: nil, encoding: Alamofire.ParameterEncoding.JSON)
-            request.response(serializer: Request.responseDataSerializer(), completionHandler: { (_, _, data, _) in
-                
-                let image = UIImage(data: data! as! NSData)!
-                self.imageCache.setObject(image, forKey: url)
-                completionHandler(image)
-                
+            request.response(serializer: Request.responseDataSerializer(), completionHandler: { (_, _, data, error) in
+                if error == nil {
+                    let image = UIImage(data: data! as! NSData)!
+                    self.imageCache.setObject(image, forKey: url)
+                    completionHandler(image)
+                } else {
+                    self.alertNetworkError()
+                }
             })
             
         }
+    }
+    func alertNetworkError() {
+        let networkErrorAlert = UIAlertController(title: "Network Error", message: "Sorry you're offline, come back later!", preferredStyle: UIAlertControllerStyle.Alert)
+        networkErrorAlert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(networkErrorAlert, animated: true, completion: nil)
     }
 }
